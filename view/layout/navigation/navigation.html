@@ -1,0 +1,63 @@
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main" style="z-index: 5">
+   <div class="container-fluid">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Brand -->
+      <a class="navbar-brand navbar-brand-dashboard" href="searchWindow.html">
+         <x-logo color="#566BD9">Stitchel</x-logo>
+      </a>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+         <!-- Collapse header -->
+         <div class="navbar-collapse-header d-md-none">
+            <div class="row">
+               <div class="col-6 collapse-brand">
+                  <!-- <a href="./index.html">
+                     <img src="../public/argon/assets/img/brand/blue.png">
+                     </a> -->
+               </div>
+               <div class="col-6 collapse-close">
+                  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                  <span></span>
+                  <span></span>
+                  </button>
+               </div>
+            </div>
+         </div>
+         <!-- Form -->
+         <form class="mt-4 mb-3 d-md-none">
+            <div class="input-group input-group-rounded input-group-merge">
+               <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+               <div class="input-group-prepend">
+                  <div class="input-group-text">
+                     <span class="fa fa-search"></span>
+                  </div>
+               </div>
+            </div>
+         </form>
+         <!-- Navigation -->
+         <ul class="navbar-nav <% request()->is('home*') ? 'active' : '' %>">
+            <li class="nav-item <% request()->is('home*') ? 'active' : '' %>">
+            <a class=" nav-link" href="searchWindow.html"> <i class="fa-fw text-left fa fa-search text-orange"></i> Search
+              </a>
+            </li>
+           <li class="nav-item <% request()->is('integrations*') ? 'active' : '' %>">
+            <a class=" nav-link <% request()->is('integrations*') ? 'active' : '' %>" href="homeWindow.html"> <i class="fa-fw text-left fas fa-users text-yellow"></i> Integrations
+              </a>
+            </li>
+           </li>
+           <li class="nav-item <% request()->is('profile*') ? 'active' : '' %>">
+            <a class=" nav-link <% request()->is('profile*') ? 'active' : '' %>" href="profileWindow.html"> <i class="fa-fw text-left fas fa-user text-success"></i> Profile
+              </a>
+            </li>
+           <li class="nav-item <% request()->is('myplan*') ? 'active' : '' %>">
+            <a class=" nav-link <% request()->is('myplan*') ? 'active' : '' %> disabled" href="#"> <i class="fa-fw text-left fas fa-calendar text-red"></i> My Plan
+              </a>
+            </li>
+        </ul>
+         <!-- End Navigation -->
+      </div>
+   </div>
+</nav>

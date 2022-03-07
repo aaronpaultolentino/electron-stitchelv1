@@ -1,0 +1,83 @@
+ <ul class="navbar-nav align-items-center d-none d-md-flex">
+  <li class="nav-item dropdown">
+    <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="media align-items-center">
+        <span class="avatar avatar-sm rounded-circle">
+            <i class="fas fa-user"></i>
+        </span>
+        <div class="media-body ml-2 d-none d-lg-block">
+          <span class="mb-0 text-sm  font-weight-bold">
+            <span class="name"></span>
+            <br />
+            <!-- <p style="font-size:12px;text-align: center;margin-bottom: 0px;">{{ auth()->user()[0] }}</p> -->
+          </span>
+        </div>
+      </div>
+    </a>
+    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+      <div class=" dropdown-header noti-title">
+        <h6 class="text-overflow m-0">Welcome!</h6>
+      </div>
+      <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="searchWindow.html">
+        <i class="fa-fw text-left fa fa-search text-orange"></i>
+        <span>Search</span>
+      </a>
+        <a class="dropdown-item" href="homeWindow.html">
+        <i class="fa-fw text-left fas fa-users text-yellow"></i>
+        <span>Integrations</span>
+      </a>
+        <a class="dropdown-item" href="profileWindow.html">
+        <i class="fa-fw text-left fas fa-user text-success"></i>
+        <span>Profile</span>
+      </a>
+      <a class="dropdown-item" href="">            
+        <i class="fa-fw text-left fas fa-calendar text-red"></i>
+        <span>My Plan</span>
+      </a>
+      <a class="dropdown-item logout-user">
+         <i class="fas fa-fw fa-sign-out-alt"></i>
+         <span>Logout</span>
+      </a>
+    </div>
+  </li>
+</ul>
+<script src="https://unpkg.com/htmlincludejs"></script>
+<script src="../public/argon/assets/js/plugins/jquery/dist/jquery.min.js"></script>
+<script>
+  let url = base_url();
+
+document.querySelector(".logout-user").addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // get access_token to revoke
+    let token = localStorage.getItem('access_token')
+    
+    $.ajax({
+        type: 'GET',
+        url: url + '/api/v1/user/logout',
+        headers: {
+            Authorization: 'Bearer ' + token
+        },
+        contentType: "application/json",
+    }).done(function(revoke) {
+        $("#result").html('<div class="alert alert-success"><button type="button" class="close"> × </button>' + 'Logout Success!' + '</div>');
+            window.setTimeout(function() {
+                $(".alert").fadeTo(300, 0).slideUp(300, function() {
+                    window.localStorage.clear();
+                    window.location.href = 'loginWindow.html';
+                    $(this).remove();
+                });
+            }, 2000);
+    }).fail(showLogoutError);
+    function showLogoutError() {
+        $("#result").html('<div class="alert alert-danger"><button type="button" class="close"> × </button>' + 'Logout Failed!' + '</div>');
+            window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                    $(this).remove();
+                });
+            }, 2000);
+    }
+});
+</script>
+

@@ -1,0 +1,41 @@
+  .navbar-search .input-group {
+    border: 0px solid;
+    background-color: #ffffff;
+}
+.navbar-search-dark .form-control {
+    color: rgb(0 0 0 / 90%);
+}
+
+.table-responsive {
+  width: 21%;
+  background: #ffffff;
+  color: #fff;
+  position: absolute;
+  left: 39.3px;
+  top: 80%;
+  box-shadow: 0 10px 10px rgb(0 0 0 / 10%);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+}
+
+list-rows:hover {
+     background-color: #f3f3f3; 
+}
+.list-rows:hover {
+     background-color: #f3f3f3; 
+}
+.list-rows {
+    padding: 1rem;
+    vertical-align: top;
+    border-top: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+.navbar-search-searching{
+    border-radius: 50px;
+}
+
+.navbar-search-searching{
+    border-radius: 10px 10px 0px 0px !important;
+}

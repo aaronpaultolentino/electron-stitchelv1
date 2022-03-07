@@ -1,0 +1,27 @@
+{
+  "name": "stitchelv1",
+  "version": "1.0.0",
+  "description": "integration desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "jest",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/search.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . StitchelApp --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/search.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"StitchelApp\"",
+    "package-linux": "electron-packager . StitchelApp --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/search.png --prune=true --out=release-builds"
+  },
+  "author": "Aaron Paul",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^3.3.7",
+    "dotenv": "^16.0.0",
+    "electron": "^16.0.5",
+    "express": "^4.17.2",
+    "request": "^2.88.2",
+    "require": "^2.4.20"
+  },
+  "devDependencies": {
+    "electron-packager": "^15.4.0",
+    "jest": "^27.5.1"
+  }
+}

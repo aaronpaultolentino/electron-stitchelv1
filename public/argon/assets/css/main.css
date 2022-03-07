@@ -1,0 +1,16 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #e2e1e8 !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #e2e1e8 !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #e2e1e8 !important;
+}
+
+.flatpickr{
+    background-color: #FFF !important;
+}
